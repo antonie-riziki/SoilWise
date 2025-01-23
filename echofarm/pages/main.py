@@ -80,12 +80,12 @@ with header:
 	        However, we will be implementing the Imputation method to deal with missing values for precision and accuracy
 	    ''')
 
-	     current_dir = os.path.dirname(os.path.abspath(__file__))
+	     # current_dir = os.path.dirname(os.path.abspath(__file__))
 
-	     # Construct the absolute path to the CSV file
-	     heatmap_path = os.path.join(current_dir, "./assets/img/Heatmap Correlation.jpg")
+	     # # Construct the absolute path to the CSV file
+	     # heatmap_path = os.path.join(current_dir, "./assets/img/Heatmap Correlation.jpg")
 		
-	    st.image(heatmap_path)
+	    st.image("./assets/img/Heatmap Correlation.jpg")
 
 	simple_impute = SimpleImputer()
 
