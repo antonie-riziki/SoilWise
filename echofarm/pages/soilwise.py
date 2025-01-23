@@ -23,8 +23,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 from sklearn.metrics import f1_score, precision_score, r2_score, mean_absolute_error, mean_squared_error
 
-from tensorflow.keras.models import load_model
-
 from PIL import Image
 
 
