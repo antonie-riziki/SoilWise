@@ -5,7 +5,6 @@ import seaborn as sb
 import numpy as np 
 import csv
 import cv2
-import autoreload
 import warnings
 
 header = st.container()
