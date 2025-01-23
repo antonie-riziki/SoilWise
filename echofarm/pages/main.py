@@ -13,8 +13,14 @@ import google.generativeai as genai
 
 from sklearn.impute import SimpleImputer
 
-sys.path.insert(1, './pages')
-print(sys.path.insert(1, '../pages/'))
+# sys.path.insert(1, './pages')
+# print(sys.path.insert(1, '../pages/'))
+
+# Get the absolute path of the current file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Add the pages directory to sys.path
+sys.path.insert(0, os.path.join(current_dir, '../pages'))
 
 from ct_model import the_explainer
 
