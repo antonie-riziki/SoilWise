@@ -29,6 +29,12 @@ from PIL import Image
 sys.path.insert(1, './pages')
 print(sys.path.insert(1, '../pages/'))
 
+# Get the absolute path of the current file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Add the pages directory to sys.path
+sys.path.insert(0, os.path.join(current_dir, '../pages'))
+
 from ct_model import  prepare_train_test_for_soil_quality, prepare_train_test_for_soil_ph, prepare_train_test_for_soil_type, prepare_train_test_for_crop_type, get_recommended_crop, get_ai_content, the_explainer, get_crop_summary
 
 from dotenv import load_dotenv
