@@ -167,7 +167,12 @@ with main_body:
 	    input_data_array = np.asarray(data)
 	    input_data_array_reshaped = input_data_array.reshape(1, -1)
 
-	    load_sph = joblib.load('./model/sph.pkl')
+	    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+	    # Construct the absolute path to the CSV file
+	    model_path = os.path.join(current_dir, '../model/sph.pkl')	
+
+	    load_sph = joblib.load(model_path)
 
 	    pred = load_sph.predict(input_data_array_reshaped)
 
@@ -207,7 +212,12 @@ with main_body:
 	    input_data_array = np.asarray(data)
 	    input_data_array_reshaped = input_data_array.reshape(1, -1)
 
-	    load_styp = joblib.load('./model/styp.pkl')
+	    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+	    # Construct the absolute path to the CSV file
+	    model_path = os.path.join(current_dir, '../model/styp.pkl')
+
+	    load_styp = joblib.load(model_path)
 
 	    pred = load_styp.predict(input_data_array_reshaped)
 
@@ -269,7 +279,12 @@ with main_body:
 	    input_data_array = np.asarray(data)
 	    input_data_array_reshaped = input_data_array.reshape(1, -1)
 
-	    load_ctyp = joblib.load('./model/ctyp.pkl')
+	    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+	    # Construct the absolute path to the CSV file
+	    model_path = os.path.join(current_dir, '../model/ctyp.pkl')
+
+	    load_ctyp = joblib.load(model_path)
 
 	    pred = load_ctyp.predict(input_data_array_reshaped)
 
