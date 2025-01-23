@@ -139,7 +139,12 @@ def get_gemini_response(prompt, question):
 
 
 def get_recommended_crop(data):
-	new_df = pd.read_csv('./src/crop_yield_dataset.csv')
+	current_dir = os.path.dirname(os.path.abspath(__file__))
+
+	# Construct the path to the image
+	csv_path = os.path.join(current_dir, '../src/crop_yield_dataset.csv')
+	
+	new_df = pd.read_csv(csv_path)
 
 	x = new_df[['N', 'P', 'K', 'Crop_Yield', 'Soil_Quality', 'Soil_pH', 'Soil_Type']]
 	y = new_df['Crop_Type']
