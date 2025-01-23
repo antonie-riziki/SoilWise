@@ -369,12 +369,13 @@ with main_body:
 		
 		
 		def get_crop_images(subpath):
-			img_dir = "./assets/img/crop_type"  
+			
+			img_dir = "../assets/img/crop_type"  
 			corn_folder = os.path.join(img_dir, subpath)
 			return(corn_folder)
 
 		def get_soil_images(subpath):
-			soil_dir = "./assets/img/soil_type"
+			soil_dir = "../assets/img/soil_type"
 			soil_folder = os.path.join(soil_dir, subpath)
 			return(soil_folder)
 
