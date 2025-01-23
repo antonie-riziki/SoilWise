@@ -13,8 +13,8 @@ import google.generativeai as genai
 
 from sklearn.impute import SimpleImputer
 
-# sys.path.insert(1, './pages')
-# print(sys.path.insert(1, '../pages/'))
+sys.path.insert(1, './pages')
+print(sys.path.insert(1, '../pages/'))
 
 # Get the absolute path of the current file
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -83,7 +83,7 @@ with header:
 	     current_dir = os.path.dirname(os.path.abspath(__file__))
 
 	     # Construct the absolute path to the CSV file
-	     heatmap_path = os.path.join(current_dir, './assets/img/Heatmap Correlation.jpg')
+	     heatmap_path = os.path.join(current_dir, "./assets/img/Heatmap Correlation.jpg")
 		
 	    st.image(heatmap_path)
 
