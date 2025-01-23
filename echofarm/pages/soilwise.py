@@ -77,7 +77,7 @@ with header:
 	
 	# tab1,tab2 = st.tabs(['Capture Image', 'Take a Video'])
 
-with main_body
+with main_body:
 	
 	current_dir = os.path.dirname(os.path.abspath(__file__))
 
