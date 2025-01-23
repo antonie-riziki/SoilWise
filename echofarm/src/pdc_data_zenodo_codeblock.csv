@@ -1,0 +1,28 @@
+variable ,question
+country,country where survey was conducted
+region,region where survey was conducted
+education level,What is the highest level of education that the farmer achieved?
+gender,What is the gender of the farmer?
+age group,What is the age of the farmer?
+household size,How many people live in the household?
+farm size (acres),What is the total size of the farm?
+crop type,Type of focus crop
+farming experience,For how many years have you been farming on the current farm location?
+land tenure,Do you own or rent the land you use for farming?
+fertiliser,"In this period (within the last 12 months), did you use fertiliser (including compost) to take care of the focus crop? "
+certified seeds,"In this period (within the last 12 months), did you buy seeds for the focus crop? "
+pest management,"In this period (within the last 12 months), did you use pesticides/fungicides/herbicides to take care of the focus crop? "
+phone ownership,Do you currently  own a personal mobile phone?
+internet use,Do you use internet?
+agricultural financing,"In the past 12 months, have you taken any loans? (e.g. from a local lender, microfinance bank, NGO, relative, cooperative)"
+bank account,Do you have a bank/Microfinance account?
+mobile account,"Do you have a mobile money account? (Farmer does not need to have credit or a loan, this question concerns mainly the account)"
+losses-rain pattern,"Over the past 5 years, did you experience crop losses due to changing rain patterns (including floods) on this farm location?"
+losses-drought,"Over the past 5 years, did you experience crop losses due to drought on this farm location?"
+losses-heatwave,"Over the past 5 years, did you experience crop losses due to heatwaves on this farm location?"
+losses-storms,"Over the past 5 years, did you experience crop losses due to storms (including cyclones, monsoons) on this farm location?"
+losses-mudslides,"Over the past 5 years, did you experience crop losses due to mudslides on this farm location?"
+farmer organization,"Are you member of a farmer organisation? (Cooperative, VSLA, SACCO, community group etc.)"
+service provider awareness,Have you heard of [service provider]? (if farmer receives input financing from [service provider] you can fill in yes without asking the question)
+agricultural continuity,Do you intend to continue working in agriculture?
+land expansion,Do you plan to increase the land you farm on in the future?
