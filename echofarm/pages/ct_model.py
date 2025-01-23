@@ -23,6 +23,8 @@ from sklearn.metrics import f1_score, precision_score, r2_score, mean_absolute_e
 
 from dotenv import load_dotenv
 
+sys.path.insert(1, './pages')
+
 load_dotenv()
 
 genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))
