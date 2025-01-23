@@ -46,7 +46,7 @@ with header:
 	
 	data = r'../src/pdc_data_zenodo.csv'
 
-	df = pd.read_csv(data, encoding='latin1')
+	df = pd.read_csv(r'../src/pdc_data_zenodo.csv', encoding='latin1')
 	st.dataframe(df.head())
 
 	col1, col2 = st.columns(2)
