@@ -111,8 +111,13 @@ with main_body:
 
 	    input_data_array = np.asarray(data)
 	    input_data_array_reshaped = input_data_array.reshape(1, -1)
+		
+	    current_dir = os.path.dirname(os.path.abspath(__file__))
 
-	    load_sqm = joblib.load('./model/sqm.pkl')
+	    # Construct the absolute path to the CSV file
+	    model_path = os.path.join(current_dir, '../model/sqm.pkl')
+
+	    load_sqm = joblib.load(model_path)
 
 	    pred = load_sqm.predict(input_data_array_reshaped)
 	    
