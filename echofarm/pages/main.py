@@ -46,7 +46,12 @@ with header:
 	
 	data = r'../src/pdc_data_zenodo.csv'
 
-	df = pd.read_csv(r'./src/pdc_data_zenodo.csv', encoding='latin1')
+	current_dir = os.path.dirname(os.path.abspath(__file__))
+
+	# Construct the absolute path to the CSV file
+	csv_path = os.path.join(current_dir, '../src/pdc_data_zenodo.csv')
+
+	df = pd.read_csv(csv_path, encoding='latin1')
 	st.dataframe(df.head())
 
 	col1, col2 = st.columns(2)
