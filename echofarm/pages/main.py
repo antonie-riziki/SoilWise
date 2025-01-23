@@ -79,7 +79,13 @@ with header:
 
 	        However, we will be implementing the Imputation method to deal with missing values for precision and accuracy
 	    ''')
-	    st.image('./assets/img/Heatmap Correlation.jpg')
+
+	     # current_dir = os.path.dirname(os.path.abspath(__file__))
+
+	     # # Construct the absolute path to the CSV file
+	     # csv_path = os.path.join(current_dir, '../src/pdc_data_zenodo.csv')
+		
+	    st.image('../assets/img/Heatmap Correlation.jpg')
 
 	simple_impute = SimpleImputer()
 
