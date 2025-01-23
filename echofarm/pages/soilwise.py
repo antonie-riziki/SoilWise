@@ -369,14 +369,21 @@ with main_body:
 		
 		
 		def get_crop_images(subpath):
-			
-			img_dir = "../assets/img/crop_type"  
-			corn_folder = os.path.join(img_dir, subpath)
+			current_dir = os.path.dirname(os.path.abspath(__file__))
+
+			# Construct the absolute path to the CSV file
+			img_path = os.path.join(current_dir, "../assets/img/crop_type")
+		  
+			corn_folder = os.path.join(img_path, subpath)
 			return(corn_folder)
 
 		def get_soil_images(subpath):
-			soil_dir = "../assets/img/soil_type"
-			soil_folder = os.path.join(soil_dir, subpath)
+			current_dir = os.path.dirname(os.path.abspath(__file__))
+
+			# Construct the absolute path to the CSV file
+			img_path = os.path.join(current_dir, "../assets/img/soil_type")
+			
+			soil_folder = os.path.join(img_path, subpath)
 			return(soil_folder)
 
 
