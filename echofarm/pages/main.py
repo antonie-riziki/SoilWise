@@ -44,7 +44,7 @@ with header:
 
 		''')
 	
-	data = './src/pdc_data_zenodo.csv'
+	data = r'./src/pdc_data_zenodo.csv'
 
 	df = pd.read_csv(data, encoding='latin1')
 	st.dataframe(df.head())
