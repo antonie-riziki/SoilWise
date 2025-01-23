@@ -77,19 +77,14 @@ with header:
 	
 	# tab1,tab2 = st.tabs(['Capture Image', 'Take a Video'])
 
-with main_body:
-
-
-	sys.path.insert(1, './pages')
-	print(sys.path.insert(1, '../pages/'))
+with main_body
 	
-	# Get the absolute path of the current file
 	current_dir = os.path.dirname(os.path.abspath(__file__))
+
+	# Construct the absolute path to the CSV file
+	csv_path = os.path.join(current_dir, '../src/crop_yield_dataset.csv')
 	
-	# Add the pages directory to sys.path
-	data_path = sys.path.insert(0, os.path.join(current_dir, './src/crop_yield_dataset.csv'))
-	
-	df = pd.read_csv(data_path)
+	df = pd.read_csv(csv_path)
 
 	le = LabelEncoder()
 	def get_categorical_columns(df):
