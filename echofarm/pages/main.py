@@ -85,7 +85,7 @@ with header:
 	     # # Construct the absolute path to the CSV file
 	     # heatmap_path = os.path.join(current_dir, "./assets/img/Heatmap Correlation.jpg")
 		
-	    st.image(".\assets\img\Heatmap Correlation.jpg")
+	    st.image("../assets/img/Heatmap Correlation.jpg")
 
 	simple_impute = SimpleImputer()
 
