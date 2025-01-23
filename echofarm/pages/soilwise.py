@@ -73,7 +73,7 @@ with header:
 
 with main_body:
 	
-	df = pd.read_csv('./src/crop_yield_dataset.csv')
+	df = pd.read_csv(r'./src/crop_yield_dataset.csv')
 
 	le = LabelEncoder()
 	def get_categorical_columns(df):
