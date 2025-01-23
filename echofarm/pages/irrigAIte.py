@@ -3,7 +3,6 @@ import streamlit as st
 import matplotlib.pyplot as plt 
 import seaborn as sb 
 import numpy as np 
-import missingno as msno 
 import csv
 import cv2
 import autoreload
