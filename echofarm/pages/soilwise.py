@@ -126,7 +126,7 @@ with main_body:
 	    data.append(float(pred[0]))  # Append the prediction (assuming `pred` is an array or list with one element)
 	    data = [float(value) for value in data]
 
-	    st.write("Soil Quality")
+	    st.write("**Soil Quality**", unsafe_allow_html=True)
 
 	    if pred >= 70:
 	        st.write(f'''The soil quality score is {round(pred[0])}, which indicates excellent fertility and suitability for most crops. 
@@ -181,7 +181,7 @@ with main_body:
 	    data.append(float(pred[0]))  # Append the prediction (assuming `pred` is an array or list with one element)
 	    data = [float(value) for value in data]
 	    
-	    st.write("Soil PH")
+	    st.markdown("**Soil PH***", unsafe_allow_html=True)
 	    if 6.2 <= pred <= 6.8:
 	        st.write(f"The predicted soil pH is {round(pred[0])}, which is within the optimal range for most crops (6.2 - 6.8). "
 	                "This means your soil is slightly acidic, making it ideal for nutrient absorption. "
@@ -223,7 +223,7 @@ with main_body:
 
 	    new_pred_val = pred[0]
 
-	    st.write("Soil Type")
+	    st.write("**Soil Type**", unsafe_allow_html=True)
 
 	    try:
 	        if new_pred_val == 0:
@@ -290,7 +290,7 @@ with main_body:
 
 	    new_pred_val = pred[0]
 
-	    st.write("Crop Type Prediction")
+	    st.write("**Crop Type Prediction**", unsafe_allow_html=True)
 	    
 	    try:
 	        if new_pred_val == 0:
@@ -356,7 +356,7 @@ with main_body:
 
 
 
-	with st.form("user form fill"):
+	with st.form("Self Service Soil Testing Form"):
 		col1, col2 = st.columns(2)
 
 		with col1:
