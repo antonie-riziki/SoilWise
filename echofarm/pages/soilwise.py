@@ -129,25 +129,15 @@ with main_body:
 	    st.write("**Soil Quality**", unsafe_allow_html=True)
 
 	    if pred >= 70:
-	        st.write(f'''The soil quality score is {round(pred[0])}, which indicates excellent fertility and suitability for most crops. 
-	                This soil can support high-yield crops with minimal intervention. To maintain this quality, 
-	                consider crop rotation and adding organic matter occasionally to replenish nutrients.''')
+	        st.success(f"✅ Soil Quality Score: {round(pred[0])}, which indicates excellent fertility")
 	    elif 50 <= pred < 70:
-	        st.write(f'''The soil quality score is {round(pred[0])}, which reflects good fertility. 
-	                While the soil is suitable for many crops, applying fertilizers or compost can help optimize yields. 
-	                Regular soil testing is recommended to ensure continued fertility.''')
+	        st.success(f"✅ Soil Quality Score: {round(pred[0])}, which reflects good fertility.")
 	    elif 30 <= pred < 50:
-	        st.write(f'''The soil quality score is {round(pred[0])}, indicating moderate fertility. 
-	                The soil may require improvements such as adding organic matter, fertilizers, or addressing drainage issues. 
-	                Growing less demanding crops or improving soil structure with organic amendments can boost productivity.''')
+	        st.info(f"ℹ️ Soil Quality Score: {round(pred[0])}, indicating moderate fertility.")
 	    elif 15 <= pred < 30:
-	        st.write(f'''The soil quality score is {round(pred[0])}, suggesting low fertility. 
-	                This soil is not ideal for most crops without significant amendments. Consider applying a combination of 
-	                organic matter, fertilizers, and soil conditioners to improve its fertility. Planting cover crops may help.''')
+	        st.warning(f"⚠️ Soil Quality Score: {round(pred[0])}, suggesting low fertility.")
 	    else:
-	        st.write(f'''The soil quality score is {round(pred[0])}, which indicates very poor fertility. 
-	                Extensive soil management is required to grow crops. Focus on improving soil structure, increasing organic matter, 
-	                and addressing potential issues like salinity or compaction before planting.''')
+	        st.error(f"❌ The soil quality score is {round(pred[0])}, which indicates very poor fertility.")
 	    st.write("")
 
 	    return pred, data
@@ -181,7 +171,7 @@ with main_body:
 	    data.append(float(pred[0]))  # Append the prediction (assuming `pred` is an array or list with one element)
 	    data = [float(value) for value in data]
 	    
-	    st.markdown("**Soil PH***", unsafe_allow_html=True)
+	    st.markdown("**Soil PH**", unsafe_allow_html=True)
 	    if 6.2 <= pred <= 6.8:
 	        st.write(f"The predicted soil pH is {round(pred[0])}, which is within the optimal range for most crops (6.2 - 6.8). "
 	                "This means your soil is slightly acidic, making it ideal for nutrient absorption. "
