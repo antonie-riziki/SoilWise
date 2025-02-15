@@ -178,11 +178,11 @@ def get_recommended_crop(data):
 	recommended_index = np.argmax(probabilities)
 	recommended_crop = le.inverse_transform([recommended_index])[0]
 
-	st.header(f''' We also Recommend: {recommended_crop}''')
+	st.subheader(f''' We also Recommend: {recommended_crop}''')
 	st.write(f'''Based on the current soil conditions, {recommended_crop} is a highly suitable 
 		choice for cultivation. Monitoring soil health and maintaining optimal conditions can further enhance productivity ''')
 
-	st.header(f''' Intercropping associated with {recommended_crop}''')
+	st.subheader(f''' Intercropping associated with {recommended_crop}''')
 
 	prompt = (f''' Suggest two or more crops that can be grown together with {recommended_crop} in an intercropping system in the Kenyan ecosystem, considering nutrient needs and benefits for each crop. 
 		For example, beans release nitrogen, which benefits nitrogen-demanding crops like maize. Provide examples for different soil types or 
@@ -202,7 +202,7 @@ def get_recommended_crop(data):
 	st.write(response.text)
 
 
-	st.header(f''' Crop Rotation associated with {recommended_crop}''')
+	st.subheader(f''' Crop Rotation associated with {recommended_crop}''')
 
 	prompt = (f'''In summary points List crop rotation based on {recommended_crop} for sustainable soil health and nutrient management in Kenyan ecosystem and have high-yield crops for economic benefit. 
 		Provide recommendations tailored to {recommended_crop} just for year 1. Just list the crops dont provide too much information''')
