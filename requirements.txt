@@ -32,4 +32,5 @@ google-generativeai==0.8.3
 googleapis-common-protos==1.66.0
 plotly==5.24.1
 python-dotenv==1.0.1
+streamlit-lottie
 
