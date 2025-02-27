@@ -563,7 +563,7 @@ with main_body:
 					print(phone_number)
 
 					# Set your message
-					message = f"Welcome to SoilWise! Revolutionizing farming with advanced soil testing for better yields & sustainable growth. Let's cultivate a greener future together!";
+					message = f"Your report has been created and a link will be sent shortly. Meanwhile visit www.echominds.africa for more information";
 					# Set your shortCode or senderId
 					sender = 20880
 					try:
