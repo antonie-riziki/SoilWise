@@ -109,5 +109,5 @@ def load_lottieurl(url: str):
 with col2:
 	reg_lottie = load_lottieurl("https://lottie.host/701a9d68-8f75-41a1-8c96-3e4b026a3d3f/zeKp8UyfVz.json")
 	st_lottie(reg_lottie)
-	# st.image('./assets/img/registration.jpg', width=700)
+	st.image('https://www.google.com/imgres?q=soil%20crop%20yield%20africa%20women&imgurl=https%3A%2F%2Fcega.berkeley.edu%2Fwp-content%2Fuploads%2F2024%2F01%2FAdobeStock_525575233-scaled-1.jpeg&imgrefurl=https%3A%2F%2Fcega.berkeley.edu%2Fcollection%2Fthe-agribroom-app-targeted-bundled-digital-agricultural-technology-for-inclusive-agricultural-productivity%2F&docid=qSoSERCEBSivlM&tbnid=XJKebINm0_2TZM&vet=12ahUKEwjBp4aR_uOLAxXx_7sIHWkrHtY4ChAzegQIShAA..i&w=1200&h=800&hcb=2&itg=1&ved=2ahUKEwjBp4aR_uOLAxXx_7sIHWkrHtY4ChAzegQIShAA', width=700)
 	# st.image('./assets/img/registration2.jpeg', width=700)
