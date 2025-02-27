@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 import africastalking
 import os
-# import requests
+import requests
 import google.generativeai as genai
 
-# from streamlit_lottie import st_lottie
+from streamlit_lottie import st_lottie
 
 
 from dotenv import load_dotenv
@@ -98,16 +98,16 @@ with col1:
 	# st.write("Outside the form")
 
 
-# def load_lottieurl(url: str):
-# 	r = requests.get(url)
-# 	if r.status_code != 200:
-# 		return None
-# 	else:
-# 		return r.json()
+def load_lottieurl(url: str):
+	r = requests.get(url)
+	if r.status_code != 200:
+		return None
+	else:
+		return r.json()
 
 
 with col2:
-	# reg_lottie = load_lottieurl("https://lottie.host/701a9d68-8f75-41a1-8c96-3e4b026a3d3f/zeKp8UyfVz.json")
-	# st_lottie(reg_lottie)
+	reg_lottie = load_lottieurl("https://lottie.host/701a9d68-8f75-41a1-8c96-3e4b026a3d3f/zeKp8UyfVz.json")
+	st_lottie(reg_lottie)
 	st.image('./assets/img/registration.jpg', width=700)
 	st.image('./assets/img/registration2.jpeg', width=700)
