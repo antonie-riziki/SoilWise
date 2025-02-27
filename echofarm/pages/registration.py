@@ -107,7 +107,7 @@ def load_lottieurl(url: str):
 
 
 with col2:
-	reg_lottie = load_lottieurl("https://lottie.host/701a9d68-8f75-41a1-8c96-3e4b026a3d3f/zeKp8UyfVz.json")
-	st_lottie(reg_lottie)
+	# reg_lottie = load_lottieurl("https://lottie.host/701a9d68-8f75-41a1-8c96-3e4b026a3d3f/zeKp8UyfVz.json")
+	# st_lottie(reg_lottie)
 	st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT287xFUSzqMyFXJTVyzwx7EmyA7lSRtg_Rzw&s.jpg", width=700)
-	# st.image('./assets/img/registration2.jpeg', width=700)
+	st.image("https://www.atai-research.org/wp-content/uploads/2023/03/Palmer_Kenya-scaled.jpeg", width=700)
