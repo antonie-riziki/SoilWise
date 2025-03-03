@@ -30,7 +30,13 @@ col1, col2 = st.columns(2)
 with col1:
 	with st.form(key="user_registration"):
 	    st.subheader("User Self Registration")
-	    names = st.text_input("Official Names")
+		
+	    fname, sname = st.columns(2)
+	    with fname:
+	    	first_name = st.text_input("First Name")
+	    with sname:
+	    	surname = st.text_input("Surname")
+		    
 	    gender_text = st.write('Gender')
 	    
 	    chk_male, chk_female = st.columns(2)
