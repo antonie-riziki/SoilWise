@@ -74,6 +74,9 @@ with header:
 		or a first-time grower, SoilWise takes the guesswork out of farming and puts science in your hands.
 
 		''')
+	url = "https://soilwise-landingpage.vercel.app/"
+	st.write("check out this [link](%s)" % url)
+	st.markdown("Click here to view the SoilWise Landing Page [link](%s)" % url)
 	
 	# tab1,tab2 = st.tabs(['Capture Image', 'Take a Video'])
 
