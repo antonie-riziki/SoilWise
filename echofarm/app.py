@@ -11,14 +11,14 @@ import sys
 
 registration_page = st.Page("./pages/registration.py", title="Signup", icon=":material/app_registration:")
 home_page = st.Page("./pages/main.py", title="Research", icon=":material/analytics:")
-agri_shield_page = st.Page("./pages/agri_shield.py", title="agri shield", icon=":material/grass:")
-irrigate_page = st.Page("./pages/irrigAIte.py", title="irrigAIte", icon=":material/agriculture:")
+# agri_shield_page = st.Page("./pages/agri_shield.py", title="agri shield", icon=":material/grass:")
+# irrigate_page = st.Page("./pages/irrigAIte.py", title="irrigAIte", icon=":material/agriculture:")
 soilwise_page = st.Page("./pages/soilwise.py", title="Soilwise", icon=":material/yard:")
 chatbot = st.Page("./pages/chatbot.py", title="ChatBot", icon=":material/chat:")
 
 
 
-pg = st.navigation([registration_page, home_page, soilwise_page, irrigate_page, agri_shield_page, chatbot])
+pg = st.navigation([registration_page, home_page, soilwise_page])#, irrigate_page, agri_shield_page, chatbot])
 
 
 st.set_page_config(
