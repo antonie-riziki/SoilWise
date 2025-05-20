@@ -18,7 +18,7 @@ chatbot = st.Page("./pages/chatbot.py", title="ChatBot", icon=":material/chat:")
 
 
 
-pg = st.navigation([registration_page, home_page, soilwise_page])#, irrigate_page, agri_shield_page, chatbot])
+pg = st.navigation([registration_page, home_page, soilwise_page, chatbot])#, irrigate_page, agri_shield_page, chatbot])
 
 
 st.set_page_config(
