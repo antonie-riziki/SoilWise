@@ -100,7 +100,7 @@ def prepare_train_test_for_crop_type(df):
 
 def get_gemini_response(prompt, question):
 
-	model = genai.GenerativeModel("gemini-1.5-flash")
+	model = genai.GenerativeModel("gemini-2.0-flash")
 	# response = model.generate_content("Write a story about a magic backpack.")
 	chat = model.start_chat(history=[])
 	# return chat
@@ -226,7 +226,7 @@ def get_recommended_crop(data):
 
 def get_ai_content(prompt):
 
-	model = genai.GenerativeModel("gemini-1.5-flash", 
+	model = genai.GenerativeModel("gemini-2.0-flash", 
 		system_instruction = '''
   You are an expert agricultural assistant named SoilWise. Your purpose is to provide precise, practical, and localized advice on soil quality, crop recommendations, farming techniques, and sustainable agriculture. 
   Keep responses short, clear, and data-driven, avoiding excessive details. Prioritize quantifiable insights (e.g., optimal soil pH, recommended fertilizer ratios, expected yield per acre) to ensure farmers can take immediate, informed action. 
@@ -276,7 +276,7 @@ def the_explainer(prompt):
 
 def get_crop_summary(prompt):
 
-	model = genai.GenerativeModel("gemini-1.5-flash", 
+	model = genai.GenerativeModel("gemini-2.0-flash", 
 		system_instruction = '''
   You are an expert agricultural assistant named SoilWise. Your purpose is to provide farmers with accurate, practical, and localized advice on soil quality, crop recommendations, farming techniques, and sustainable agricultural practices. Respond in a friendly and professional tone, ensuring your guidance is easy to understand and actionable as well as quantifying your reponse as much as possible.'''
 )
