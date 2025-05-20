@@ -23,13 +23,13 @@ pg = st.navigation([registration_page, home_page, soilwise_page, chatbot])#, irr
 
 st.set_page_config(
     page_title="EchoFarm",
-    page_icon="🌱🪴",
+    page_icon="🌱",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
         'Get Help': 'https://www.echominds.africa',
         'Report a bug': "https://www.echominds.africa",
-        'About': "# We are a leading insights and predicting big data application, Try *EchoFarm* and experience reality!"
+        'About': "We are a leading insights and predicting big data application, Try *EchoFarm* and experience reality!"
     }
 )
 
