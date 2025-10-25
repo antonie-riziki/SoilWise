@@ -91,7 +91,7 @@ def prepare_train_test_for_crop_type(df):
 
 
 # def gemini_chatbot():
-# 	model = genai.GenerativeModel("gemini-1.5-flash")
+# 	model = genai.GenerativeModel("gemini-2.0-flash")
 # 	# response = model.generate_content("Write a story about a magic backpack.")
 # 	chat = model.start_chat(history=[])
 # 	# return chat
@@ -289,6 +289,7 @@ def get_crop_summary(prompt):
 )
 
 	st.write(response.text)
+
 
 
 
