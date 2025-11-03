@@ -1,96 +1,84 @@
-#!/usr/bin/env python3
-
-import streamlit as st
-import google.generativeai as genai
+import sys
 import os
+import streamlit as st
 
-from dotenv import load_dotenv
+# --- Ensure project root is in Python path ---
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
-load_dotenv()
+# --- Now safe to import echofarm modules ---
+from echofarm.mcp.client import MCPClient, MCPClientError
+from echofarm.mcp.config import MCP_SERVER_URL
 
-genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))
+# st.set_page_config(page_title="SoilWise Chatbot + MCP", layout="wide")
 
+# st.title("SoilWise — Chatbot (MCP client)")
 
-def get_gemini_response(prompt):
+# initialize client
+client = MCPClient(MCP_SERVER_URL)
 
-	model = genai.GenerativeModel("gemini-1.5-flash", 
+col1, col2 = st.columns([1, 1])
 
-        system_instruction = '''
+with col1:
+    st.header("Chat")
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = []
 
-        You are an expert in farming, agriculture, and agri-focused edtech. Your responses should be short, precise, and conversational, maintaining a meek and approachable tone.
+    for msg in st.session_state.chat_history:
+        if msg["role"] == "user":
+            st.markdown(f"**You:** {msg['text']}")
+        else:
+            st.markdown(f"**SoilWise:** {msg['text']}")
 
-	🔹 Scope:
-	You only discuss topics related to agriculture, including:
-	
-	Crop farming, soil health, irrigation, and pest control
-	Livestock management and animal husbandry
-	Agri-tech innovations, smart farming, and AI in agriculture
-	Sustainable farming, organic methods, and climate resilience
-	Agricultural education, training, and career guidance in agri-tech
-	🔹 Knowledge Source & Response Style:
-	✅ You must search within your pretrained dataset and provide direct, informative answers instead of redirecting users to external sources.
-	✅ Avoid statements like:
-	"A local agricultural extension office would be your best resource..."
-	Instead, provide specific insights from your dataset.
-	
-	🔹 Restrictions:
-	❌ Do not discuss topics outside agriculture (e.g., politics, entertainment, or general tech).
-	❌ Do not give generic redirects—always offer direct, valuable insights.
-	❌ Do not generate lengthy technical explanations—keep responses clear and engaging.
-	
-	🔹 Tone & Style:
-	✅ Conversational & Meek (friendly, helpful, and respectful)
-	✅ Clear & Practical (focus on actionable advice)
-	✅ Encourage Learning (offer insights but avoid overwhelming jargon)
-	
-	🎯 Example Response:
-	User: How can I improve soil fertility?
-	Chatbot: "Great question! 🌱 Adding compost, rotating crops, and using cover crops like clover can boost soil nutrients naturally. Do you prefer organic methods or synthetic fertilizers?"            
-	
+    user_input = st.text_input("Send a message", key="user_input")
+    if st.button("Send"):
+        if user_input.strip():
+            st.session_state.chat_history.append({"role": "user", "text": user_input})
+            # simple keyword trigger: if user asks about recommendation, call MCP
+            lowered = user_input.lower()
+            if "recommend" in lowered or "what to plant" in lowered or "crop" in lowered:
+                # open a dialog in the right pane to enter sensor data (or default)
+                st.session_state.chat_history.append({"role": "assistant", "text": "Please provide soil metrics on the right pane (or use defaults), then click 'Get Recommendation'."})
+            else:
+                # fallback quick reply
+                st.session_state.chat_history.append({"role": "assistant", "text": "I can recommend crops based on soil metrics. Ask me to recommend crops or click 'Tools'."})
+        st.rerun()
 
-        ''')
+with col2:
+    st.header("Tools / MCP")
+    try:
+        tools = client.list_tools()
+        st.write("Discovered tools:")
+        st.json(tools)
+    except Exception as e:
+        st.error(f"Could not reach MCP server at {MCP_SERVER_URL}: {e}")
+        st.stop()
 
-	# Generate AI response
+    st.subheader("Invoke soil_recommendation")
+    with st.form("invoke_form"):
+        ph = st.slider("pH", 3.0, 9.0, 6.5)
+        moisture = st.slider("Moisture (%)", 0, 100, 40)
+        nitrogen = st.number_input("Nitrogen (mg/kg)", min_value=0.0, max_value=1000.0, value=60.0)
+        phosphorus = st.number_input("Phosphorus (mg/kg)", min_value=0.0, max_value=1000.0, value=40.0)
+        potassium = st.number_input("Potassium (mg/kg)", min_value=0.0, max_value=1000.0, value=30.0)
+        temperature = st.number_input("Soil Temp (°C)", value=25.0)
+        submitted = st.form_submit_button("Get Recommendation")
 
-	response = model.generate_content(
-        prompt,
-        generation_config = genai.GenerationConfig(
-        max_output_tokens=1000,
-        temperature=0.1, 
-      )
-    
-	)
-
-
-	
-	return response.text
-
-
-
-
-# Initialize session state for chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
-
-# Display chat history
-for message in st.session_state.messages:
-
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-
-
-
-if prompt := st.chat_input("How may I help?"):
-    # Append user message
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
-
-    # Generate AI response
-    chat_output = get_gemini_response(prompt)
-    
-    # Append AI response
-    with st.chat_message("assistant"):
-        st.markdown(chat_output)
-
-    st.session_state.messages.append({"role": "assistant", "content": chat_output})
+    if submitted:
+        payload = {
+            "ph": ph, "moisture": moisture, "nitrogen": nitrogen,
+            "phosphorus": phosphorus, "potassium": potassium, "temperature": temperature
+        }
+        try:
+            result = client.invoke_tool("soil_recommendation", payload)
+            # display and add to chat history
+            pretty = result.get("result", result)
+            st.json(pretty)
+            st.session_state.chat_history.append({"role": "assistant", "text": f"Recommendation: {pretty}"})
+            st.rerun()
+        except MCPClientError as me:
+            st.error(f"Invoke failed: {me}")
+        except Exception as e:
+            st.error(f"Unexpected error: {e}")
