@@ -1,3 +1,5 @@
+[![smithery badge](https://smithery.ai/badge/@Gill-tech/soil-wise254)](https://smithery.ai/server/@Gill-tech/soil-wise254)
+
 # SoilWise 🌱
 
 SoilWise is an intelligent agricultural solution that combines soil analysis, crop recommendations, and smart irrigation systems to help farmers make data-driven decisions for optimal crop yield. Powered by advanced IoT sensors and Machine Learning algorithms, SoilWise analyzes your soil's type, moisture levels, pH, and nutrient content.
