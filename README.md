@@ -163,3 +163,5 @@ For support, please open an issue in the GitHub repository or contact the mainta
 - [OpenAI](https://openai.com/) for AI capabilities
 - [Google AI](https://ai.google/) for generative AI features
 - [Africa's Talking](https://africastalking.com/) for communication services
+- 
+
