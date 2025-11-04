@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from typing import Dict, Any
 import uvicorn
 
-app = FastAPI(title="SoilWise - Example MCP Server")
+app = FastAPI(title="SoilWise - MCP Server")
 
 # A simple register of tools. In production your MCP lib would expose discovery, schema, etc.
 TOOLS = {
@@ -17,6 +17,13 @@ TOOLS = {
             "phosphorus": "float",
             "potassium": "float",
             "temperature": "float"
+        }
+    },
+    "weather": {
+        "description": "Get weather forecast for a given location",
+        "inputs": {
+            "latitude": "float",
+            "longitude": "float"
         }
     }
 }

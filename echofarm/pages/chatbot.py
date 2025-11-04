@@ -12,9 +12,6 @@ if project_root not in sys.path:
 from echofarm.mcp.client import MCPClient, MCPClientError
 from echofarm.mcp.config import MCP_SERVER_URL
 
-# st.set_page_config(page_title="SoilWise Chatbot + MCP", layout="wide")
-
-# st.title("SoilWise — Chatbot (MCP client)")
 
 # initialize client
 client = MCPClient(MCP_SERVER_URL)
@@ -56,7 +53,7 @@ with col2:
         st.error(f"Could not reach MCP server at {MCP_SERVER_URL}: {e}")
         st.stop()
 
-    st.subheader("Invoke soil_recommendation")
+    st.subheader("Recommendation")
     with st.form("invoke_form"):
         ph = st.slider("pH", 3.0, 9.0, 6.5)
         moisture = st.slider("Moisture (%)", 0, 100, 40)
@@ -64,7 +61,7 @@ with col2:
         phosphorus = st.number_input("Phosphorus (mg/kg)", min_value=0.0, max_value=1000.0, value=40.0)
         potassium = st.number_input("Potassium (mg/kg)", min_value=0.0, max_value=1000.0, value=30.0)
         temperature = st.number_input("Soil Temp (°C)", value=25.0)
-        submitted = st.form_submit_button("Get Recommendation")
+        submitted = st.form_submit_button("Get Recommendation", use_container_width=True ,type="primary")
 
     if submitted:
         payload = {

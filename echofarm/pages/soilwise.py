@@ -379,7 +379,7 @@ with main_body:
 			return(soil_folder)
 
 
-		if st.form_submit_button("Cultivate Wisdom"):
+		if st.form_submit_button("Cultivate Wisdom", use_container_width=True ,type="primary"):
 			col1, col2 = st.columns(2)
 
 			with st.expander('Full Report', expanded=True):
@@ -552,7 +552,7 @@ with main_body:
 			with st.form(key="report"):
 				phone_number = st.number_input('Phone Number', value=0, min_value=0, max_value=int(10e10))
 
-				submit_report = st.form_submit_button("Send")
+				submit_report = st.form_submit_button("Send", use_container_width=True ,type="primary")
 
 				def send_report():
 					amount = "10"
