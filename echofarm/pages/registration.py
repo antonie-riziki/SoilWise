@@ -50,7 +50,7 @@ with col1:
 	    username = st.text_input('Username:')
 	    email = st.text_input("Email: ")
 	    phone_number = st.number_input("Phone Number:", value=None, min_value=0, max_value=int(10e10))
-	    password = st.text_input('Password', type="password")
+	    password = st.text_input('Passowrd', type="password")
 	    confirm_password = st.text_input('Confirm password', type='password')
 
 	    checkbox_val = st.checkbox("Subscribe to our Newsletter")

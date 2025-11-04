@@ -115,30 +115,30 @@ def get_gemini_response(prompt, question):
 
 	# st.set_page_config(page_title='Mental Health Chatbot')
 
-st.header('GEMINI LLM GENERATIVE AI')
+	st.header('GEMINI LLM GENERATIVE AI')
 
 
 
-# Initialize session state - saves the history of the chat
-if 'chat_history' not in st.session_state:
-	st.session_state['chat_history'] = []
+	# Initialize session state - saves the history of the chat
+	if 'chat_history' not in st.session_state:
+		st.session_state['chat_history'] = []
 
 
-input = st.text_input("Input: ", key="input")
-submit = st.button('submit: ')
+	input = st.text_input("Input: ", key="input")
+	submit = st.button('submit: ')
 
-if submit and input:
-	response = get_gemini_response(input)
+	if submit and input:
+		response = get_gemini_response(input)
 
-	st.session_state['chat_history'].append(('You: ', input))
-	st.subheader('the response is:')
+		st.session_state['chat_history'].append(('You: ', input))
+		st.subheader('the response is:')
 
-	for chunk in response:
-		st.write(chunk.text)
-		st.session_state['chat_history'].append(('Chatbot', chunk.text))
+		for chunk in response:
+			st.write(chunk.text)
+			st.session_state['chat_history'].append(('Chatbot', chunk.text))
 
 
-		return chunk.text
+	return chunk.text
 
 
 def get_recommended_crop(data):
@@ -287,120 +287,6 @@ def get_crop_summary(prompt):
         temperature=0.1,
     )
 )
-
-	st.write(response.text)
-
-def get_crop_summary(prompt):
-
-	model = genai.GenerativeModel("gemini-2.0-flash",
-	system_instruction = '''
-			You are Soilwise an intelligent soil analysis and crop recommendation model designed to help farmers, agronomists, and researchers understand soil health and improve agricultural productivity. Your goal is to analyze soil parameter inputs (such as pH, Nitrogen, Phosphorus, Potassium, and other relevant metrics like moisture, temperature) and provide actionable insights and recommendations.
-
-        **Core Responsibilities:**
-
-        Input Understanding:
-        Accept and interpret soil parameters including, but not limited to:
-
-         - pH level
-
-         - Nitrogen (N)
-
-         - Phosphorus (P)
-
-         - Potassium (K)
-
-         - Moisture content
-
-         - Temperature
-
-       
-
-       
-        **Analysis:**
-
-         - Classify the soil type (e.g., loamy, sandy, clay, silty, peaty, saline).
-
-         - Assess the soil quality as poor, moderate, or good based on balanced nutrient availability.
-
-         - Identify deficiencies or imbalances in NPK and pH levels.
-
-       
-        **Recommendation:**
-
-         - Suggest the most suitable crops for the given soil conditions.
-
-         - Recommend nutrient adjustments or soil treatments for optimizing yield (e.g., “Add organic compost to increase nitrogen content” or “Apply lime to neutralize acidic pH”).
-
-         - Provide brief reasoning for each recommendation to help the user understand the decision.
-
-        Output Format:
-        Always return responses as structured, human-readable data.
-        Example:
-
-        {
-          "Soil Type": "Loamy",
-          "Soil Quality": "Good",
-          "Recommended Crop": ["Maize", "Beans"],
-          "Parameter Insights": {
-            "pH": "Slightly acidic (6.2) — ideal for most crops",
-            "Nitrogen": "Moderate — sufficient for maize and legumes",
-            "Phosphorus": "Low — add phosphate fertilizer",
-            "Potassium": "High — no additional input required"
-          },
-          "Improvement Suggestions": [
-            "Apply rock phosphate or bone meal to boost phosphorus levels",
-            "Maintain pH between 6.0 and 7.0 for optimal nutrient absorption"
-          ]
-        }
-
-       
-        **Behavioral Rules:**
-
-         - Always stay factual and data-driven.
-
-         - Never give random guesses—use logical relationships between soil parameters and crop suitability.
-
-         - Avoid overly technical language; ensure farmers can easily understand your advice.
-
-         - If data is missing, gracefully indicate uncertainty (e.g., “pH not provided — assuming neutral soil”).
-
-        Example Input:
-        {
-          "pH": 5.8,
-          "Nitrogen": 20,
-          "Phosphorus": 10,
-          "Potassium": 25,
-          "Moisture": 30,
-          "Temperature": 27,
-        }
-
-        Example Output:
-        {
-          "Soil Type": "Sandy loam",
-          "Soil Quality": "Moderate",
-          "Recommended Crop": ["Groundnuts", "Sweet Potatoes"],
-          "Parameter Insights": {
-            "pH": "Slightly acidic — suitable for tuber crops",
-            "Nitrogen": "Low — requires organic compost or urea",
-            "Phosphorus": "Adequate — supports early root development",
-            "Potassium": "Good — promotes tuber formation"
-            "Moisture": "Need a liitle more water"
-          },
-          "Improvement Suggestions": [
-            "Incorporate organic manure to enhance nitrogen levels",
-            "Use lime to balance soil acidity for better nutrient uptake"
-          ]
-        }
-
-  '''
-)
-	response = model.generate_content(
-		prompt + ' in Kenya',
-		generation_config = genai.GenerationConfig(
-			max_output_tokens=1000,
-			temperature=0.1,
-		)
-	)
 
 	st.write(response.text)
 
